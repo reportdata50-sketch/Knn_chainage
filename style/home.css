@@ -1,0 +1,396 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.sidebar {
+    height: 706px;
+    width: 380px;
+    position: fixed;
+    top: 1px;
+    left: 1px;
+    background-color: #fcfafa;
+    padding-top: 20px;
+    box-sizing: border-box;
+    border-right: 2px solid #9e9b9b;
+    border-top: 3px solid #9e9b9b; 
+    border-left: 3px solid #9e9b9b;
+    border-bottom: 3px solid #9e9b9b;
+    box-shadow: 2px 0 5px #9e9b9b;
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.logo {
+    width: 50px; /* Reduced size */
+    height: auto;
+    border: 2px solid #444;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin-right: 10px; /* Space between logo and text */
+}
+
+.logo-text {
+    font-size: 22px; /* Increase font size */
+    color: #333; /* Dark gray color */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Add text shadow */
+    background-color: #fcfafa; /* Light background color */
+    padding: 5px 10px; /* Add padding */
+    border-radius: 5px; /* Round the corners of the background */
+    box-shadow: 0 0 5px rgba(0,0,0,0.3); /* Add subtle shadow around the text */
+    margin-left: 10px; /* Add some space between logo and text */
+}
+
+.sidebar-item {
+    padding: 10px;
+}
+
+.select-field {
+    width: 100%; /* Reduced width */
+    padding: 8px; /* Reduced padding */
+    background-color: #aeb1ae00;
+    color: #080808;
+    border: 2px solid #444;
+    border-radius: 5px;
+    font-size: 14px; /* Reduced font size */
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+    margin: 0 auto; /* Center align */
+    display: block;
+}
+
+.select-field option {
+    background-color: #aeb1ae00;
+    color: #080808;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.separator {
+    border-bottom: 3px solid #9e9b9b; 
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);/* Line between sections */
+    margin: 30px 0; /* Space around the line */
+}
+
+.cards-section {
+    padding: 10px;
+}
+
+.cards-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 20px; /* Space between cards */
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    padding: 20px;
+    font-size: 16px;
+    width: 100%; /* Full width of the grid column */
+    box-sizing: border-box;
+    color: #fff; /* Text color for better contrast */
+   
+}
+
+.card-title {
+    font-size: 16px; /* Reduced title size */
+    font-weight: bold;
+    margin-bottom: 20px; /* Reduced space between title and content */
+    color: #171616; /* Text color for better contrast */
+    text-align: center;
+}
+
+.card-content {
+    color: #1b1919; /* Text color for better contrast */
+    text-align: center;
+}
+
+#map {
+    top: 1px;
+    position: fixed;
+    left: 380px;
+    width: 100%;
+    height: 98vh;
+    /* height: 706px; */
+    box-sizing: border-box;
+    border-left: 3px solid #9e9b9b;
+    border-right: 3px solid #9e9b9b;
+    border-top: 3px solid #9e9b9b;
+    border-bottom: 3px solid #9e9b9b; 
+    box-shadow: 2px 0 5px #9e9b9b;
+}
+
+#scale_bar {
+    position: absolute;
+    z-index: 500;
+    bottom: 0%;
+    left: 20%;
+}
+
+.ol-scale-text {
+    /* //color: red; */
+    font-weight: bold;
+}
+
+.layer-switcher .panel{
+    height: 350px;
+    width: 220px;
+    font-size:small;
+    font: weight 100px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fcfafa;
+    color: #0f0e0e;
+    text-align: center;
+    padding: 2px 0; /* Reduced padding */
+    /* box-shadow: 0 -2px 5px rgba(0,0,0,0.2);  */
+    z-index: 1000;
+    font-size: 12px;   
+}  
+
+.button-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Center align items vertically */
+    flex-direction: column; /* Arrange items in a column */
+    gap: 10px; /* Add gap between elements */
+}
+
+.button-and-select-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px; /* Increased gap */
+}
+
+.action-button {
+    padding: 8px 25px;
+    background-color: #4CAF50;
+    font-size: 15px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:hover {
+    background-color: #45a049;
+}
+
+.select-year {
+    padding:10px;
+    background-color:  #4CAF50;
+    width: 150px; /* Adjust the width as needed */
+    color: #ffffff;
+    border: none; /* Remove the border */
+    box-shadow: none; /* Remove the shadow */
+}
+.select-year option {
+    background-color: #fbfbfb;
+    color: #080808;
+}
+.select-year:hover {
+    background-color: #45a049;
+}
+
+
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+.sidebar {
+width: 380px;
+}
+
+#map {
+left: 380px;
+width: calc(100% - 380px);
+}
+}
+
+@media (max-width: 767px) {
+.sidebar {
+width: 100%;
+position: relative;
+}
+
+#map {
+position: relative;
+left: 0;
+width: 100%;
+height: 60vh;
+}
+
+.cards-container {
+grid-template-columns: 1fr;
+}
+
+.button-and-select-container {
+flex-direction: column;
+gap: 10px;
+}
+
+.select-field, .select-year {
+width: 80%;
+font-size: 12px;
+padding: 6px;
+}
+
+.cards-title {
+font-size: 16px;
+}
+
+.card-title {
+font-size: 12px;
+}
+
+.card-content {
+font-size: 10px;
+}
+}
+
+@media (max-width: 480px) {
+.logo-text {
+font-size: 18px;
+}
+
+.select-field, .select-year {
+width: 90%;
+font-size: 12px;
+padding: 5px;
+}
+
+.action-button {
+font-size: 12px;
+}
+
+.cards-title {
+font-size: 14px;
+}
+
+.card-title {
+font-size: 12px;
+}
+
+.card-content {
+font-size: 10px;
+}
+}
+.ol-control button {
+    display: block;
+    margin: -5px;
+    padding: 20px;
+    color: var(--ol-subtle-foreground-color);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: inherit;
+    text-align: center;
+    height: 1.375em;
+    width: 1.375em;
+    line-height: .4em;
+    background-color: var(--ol-background-color);
+    border: none;
+    border-radius: 2px;
+    right: 17px;
+    position: fixed;
+    top: 27px;
+}
+
+
+
+.layer-switcher.shown.layer-switcher-activation-mode-click > button {
+    display: block;
+    background-image: unset;
+    right: 30px;
+    position: absolute;
+    background-color: #eee;
+    margin: -23px 1px;
+}
+
+.progress {
+    background-color: #45A049; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    padding: 20px 25px; /* Add some padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Set font size */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    margin: 30px; /* Add some margin to prevent touching the edges */
+    position: absolute; /* Keep button positioned */
+    bottom: 20px; /* Place button at the bottom of the container */
+    left: 50px; /* Place the button at a specific horizontal position */
+    display: flex; /* Use flex to center text */
+     align-items: center; 
+    justify-content: center; 
+    text-align: center; }
+#progress_graph{
+    top: 1px;
+    position: fixed;
+    left: 380px;
+    width: 1156px;
+    height: 705px;
+    box-sizing: border-box;
+    border-left: 3px solid #9E9B9B;
+    border-right: 3px solid #9E9B9B;
+    border-top: 3px solid #9E9B9B;
+    border-bottom: 3px solid #9E9B9B;
+    box-shadow: 2px 0 5px #9E9B9B;
+}
+
+
+.legend-box {
+    position: absolute;
+    bottom: 54px;
+    left: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 20000;
+    height: 27vh;
+    width: 176px;
+    font-size: small;
+    display: none;
+} /* Initially hidden */
+.legend-box.visible {
+    display: block; /* Show when class 'visible' is added */
+}
+.legend-box h3{
+    font-size: 20px;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.color-box {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 10px;
+    border: 1px solid #000;
+}

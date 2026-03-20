@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanpur</title>
+
+    <link href="libs/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="libs/v6.13.0-dist/ol.css">
+    <link rel="stylesheet" href="libs/ol-layerswitcher-master/dist/ol-layerswitcher.css" />
+    <link rel="sylesheet" href="libs/ol-geocoder/ol-geocoder.css" />
+    <!-- <link rel="stylesheet" href="libs/ol-popup/ol-popup.css"/> -->
+    <link rel="stylesheet" href="libs/jquery-ui-1.12.1/jquery-ui.css">
+
+    <script src="libs/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="libs/jquery.js"></script>
+    <script src="libs/v6.13.0-dist/ol.js"></script>
+    <script src="libs/ol-layerswitcher-master/dist/ol-layerswitcher.js"></script>
+    <script src="libs/ol-geocoder/ol-geocoder.js"></script>
+    <script src="libs/ol-popup/ol-popup.js"></script>
+    <script src="libs/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script src="libs/jquery-ui-1.12.1/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
+    <link rel="shortcut icon" type="image/x-icon" class="fabicon" href="/logo/logo_tree.png" />
+    <!-- <link rel="stylesheet" href="style/knn_chain.css"> -->
+     <link rel="stylesheet" href="style/knn_chain.css"> 
+    <link rel="stylesheet" href="style/responsive.css">
+</head>
+
+<body>
+    <!---------------------- header section start -------------------------->
+    <div class="header">
+        <!-- <i class="fas fa-bars hamburger"></i> -->
+        <div class="center-content">
+            <img src="./logo/Kanpur_logo.jpg" class="logo" alt="" />
+            <h2 class="title">Kanpur Nagar Nigam</h2>
+            <img src="./logo/rsac (1).png" class="logo" alt="dp" />
+            <img src="./logo/download.png" class="logo1" alt="dp" />
+           
+        </div>
+            
+    </div>
+
+
+
+
+        <!---------------------- main-container section start -------------------------->
+        <div class="main-container">
+             <div class="road-search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="roadSearch" placeholder="Search road..." autocomplete="off">
+                <span id="clearSearch" class="clear-btn">&times;</span>
+            </div>
+            <div id="roadSuggestions" class="suggestions-box"></div>
+
+
+            <!---------------------- map section start ------------------>
+            <div id="map">
+                <div class="map-icons-left">
+
+                    <button id="locateBtn">My Location</button>
+                    <!-- <button class="map-icon" id="locateBtn" title="Roads" class="main-option">
+                    <i class="fas fa-road"></i></button>
+                    <h6 class="h6">Roads</h6>  -->
+
+                    <!-- <button class="map-icon" id="ShowChainage" title="Chainage">
+                            <i class="icon fas fa-route"></i></a></button>
+                        <h6 class="h6">Chainage</h6> -->
+
+
+                </div>
+
+
+                <!-- -------------------Panel code for creating satrt and end point---------------- -->
+                <div id="uniqueIdPanel" class="uid-panel hidden">
+                    <div class="uid-header">
+                        <span>Select Road Segments</span>
+                        <button id="closeUniqueIdPanel" class="uid-close">✕</button>
+                    </div>
+
+                    <div class="uid-body">
+                        <!-- Road ID as a text box -->
+                        <div class="uid-field">
+                            <label for="road">Road Id -
+                                <input type="text" id="road" class="input-field" readonly />
+                                <!-- Road ID displayed in a text box -->
+                            </label>
+
+                            <label for="zoneNo">Zone No. -
+                                <input type="text" id="zoneNo" class="input-field" readonly />
+                                <!-- Zone No displayed in a text box -->
+                            </label>
+
+                            <label for="wardNo">Ward No. -
+                                <input type="text" id="wardNo" class="input-field" readonly />
+                                <!-- Ward No displayed in a text box -->
+                            </label>
+
+                            <label for="RoadName">Rd Name -
+                                <input type="text" id="RoadName" class="input-field" readonly />
+                                <!-- Road Name displayed in a text box -->
+                            </label>
+                        </div>
+
+                        <div class="uid-field">
+                            <label for="startPoint">Start Chainage
+                                <select id="startPoint" class="input-field"></select>
+                            </label>
+                        </div>
+
+                        <div class="uid-field">
+                            <label for="endPoint">End Chainage
+                                <select id="endPoint" class="input-field"></select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="uid-footer">
+                        <button id="submitUniqueId" class="uid-btn primary">Create Patch</button>
+                    </div>
+
+
+                </div>
+
+                <!-- -----------------View Patch Data------------------------ -->
+                <div id="viewChainageSection" class="hidden">
+                    <strong>View Patch Data</strong><br>
+                    <label>
+                        <input type="radio" name="viewChainage" value="yes">
+                        Yes
+                    </label>
+                    <label style="margin-left:10px;">
+                        <input type="radio" name="viewChainage" value="no">
+                        No
+                    </label>
+                </div>
+
+
+                <div class="patch-panel hidden" id="viewpatch-select"></div>
+                <!-- Heading for Current Patches -->
+
+
+
+                <!-- <div id="updatePatchPanel" class="hidden">
+                <strong>Update Patch Details</strong><br>
+                <label><input type="radio" name="updatePatchChoice" value="yes">Yes</label>
+                <label style="margin-left: 10px;"><input type="radio" name="updatePatchChoice" value="no">No</label>
+            </div> -->
+
+                <!-- <div id="hoverInfo"></div> -->
+
+                <!-- <div class="patch-panel hidden" id="viewpatch-select"></div> -->
+                <!-- <button id="confirmUploadBtn">download</button> -->
+
+
+                <!-- <div id="updatePatchForm" class="hidden">
+                <h3>UPDATION FORM</h3>
+                <div id="patchSegmentGrid"></div>
+                <button id="submitPatchUpdate">Submit</button>
+                <button id="cancelPatchUpdate" style="margin-left: 10px;">Cancel</button>
+            </div> -->
+
+                <div id="apipanel" class="apipanel"></div>
+                <button id="previewBtn" class="btn">Project Info</button>
+
+                <!------------------------  table start --------------------->
+                <div id="ChainageTable"> </div>
+                <!------------------------  table end --------------------->
+                <!-- Confirmation Modal -->
+                <!-- <div id="confirmationModal" class="modal">
+                <div class="modal-content">
+                    <h3>Confirm Download</h3>
+                    <p>Are you sure you want to send Payload with the image?</p>
+
+                    <div class="modal-actions">
+                        <button id="confirmDownloadBtn" class="button confirm">Yes</button>
+                        <button id="cancelDownloadBtn" class="button cancel">No</button>
+                    </div>
+                </div>
+            </div> -->
+                <!-- <button id="senddata" class="btn">Submit</button> -->
+                <!------------------------ Preview detail start --------------------->
+
+
+                <div id="previewModal" class="modal" style="display:none;">
+                    <div class="modal-content_preview">
+
+                        <div class="confirm-header">
+                            <h3>Confirm Submission</h3>
+                        </div>
+
+                        <div id="previewDetails"></div>
+
+                        <img id="previewImage" style="width:100%; margin-top:15px; border-radius:8px;" />
+
+                        <div class="modal-actions" style="margin-top:20px;">
+                            <button id="confirmSendBtn" class="button confirm">Submit</button>
+                            <button id="cancelSendBtn" class="button cancel">Cancel</button>
+                        </div>
+
+                    </div>
+                </div>
+                <button id="senddata" class="btn">Submit</button>
+                <!-- <button id="previewBtn" class="btn">Preview Patch</button> -->
+
+
+
+            </div>
+        </div>
+        <!-------------------- map section end -------------------->
+        <!-- Scale bar container -->
+        <div id="scale_bar"></div>
+
+        <!-- Custom scale bar (optional) -->
+        <div id="scale_bar1"></div>
+
+        <!--------- main-container section end -------------->
+
+        <!----------- footer section start ---------->
+        <div class="footer">
+            &copy; 2024 UP Remote Sensing Applications Centre. All rights reserved.
+        </div>
+        <!--------- footer section end ----------->
+        <script src="config.js"></script>
+        <script src="./javascript/kanpur_chain.js"></script>
+
+
+
+</body>
+
+</html>

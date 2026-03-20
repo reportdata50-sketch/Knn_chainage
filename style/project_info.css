@@ -1,0 +1,274 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e9ecef;
+  /* Light background color for the whole page */
+  overflow: hidden;
+}
+
+/*-----------------------header css----------------------*/
+.header {
+  width: 100%;
+  
+  color: #f7f4f4;
+  background-color: #1e3a5f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6.5px;
+  /* Reduced padding */
+  z-index: 1000;
+  border-bottom: 1px solid #9e9b9b;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.header .hamburger {
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  left: 30px;
+  /* Adjusted for smaller padding */
+}
+
+.header .fa-print {
+  font-size: larger;
+  position: absolute;
+  right: 25px;
+}
+
+.header .logo {
+  height: 30px;
+  /* Reduced logo height */
+  margin: 0 30px;
+  /* Adjusted margin */
+  border-radius: 50%;
+}
+
+.header .logo1 {
+  height: 34px;
+  position: absolute;
+  right: 1%;
+  border-radius: 50%;
+}
+
+.header .title {
+  font-size: 1.2em;
+  /* Slightly smaller font size */
+  margin: 0 30px;
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+/* Flexbox container to center logo and title */
+.header .center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 2;
+  /* Allow this section to take up available space */
+}
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2%;
+  background-color: #1e3a5f;
+  color: #f8f5f5;
+  text-align: center;
+  padding: 2px 0;
+  /* Reduced padding */
+
+  z-index: 1000;
+  font-size: 12px;
+
+  color: rgb(0, 0, 0);
+}
+
+
+.chart-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  width:40%;
+  height:300px;
+}
+
+#stageChart {
+  width: 250px !important;
+  height: 250px !important;
+  border: 1px solid #e5e7eb;display: block;
+  margin: 0 auto;
+
+}
+.chart-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e3a5f;
+  margin-bottom: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Filter Container Layout */
+.filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 16px;
+  background: #cadbf5;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+/* Common style for all filters */
+.filter-panel select,
+.filter-panel input[type="number"] {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  min-width: 140px;
+}
+
+/* Focus effect */
+.filter-panel select:focus,
+.filter-panel input[type="number"]:focus {
+  outline: none;
+  border-color: #1f4e79;
+  box-shadow: 0 0 0 2px rgba(31, 78, 121, 0.15);
+}
+
+/* Specific styling for amount inputs */
+#minAmount,
+#maxAmount {
+  width: 160px;
+  text-align: right;
+}
+
+/* Placeholder styling */
+#minAmount::placeholder,
+#maxAmount::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Optional: remove spinner arrows (cleaner look) */
+#minAmount::-webkit-inner-spin-button,
+#maxAmount::-webkit-inner-spin-button,
+#minAmount::-webkit-outer-spin-button,
+#maxAmount::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .data-table {
+    font-size: 12px;
+  }
+}
+.table-scroll-wrapper {
+  overflow-x: auto;
+  width: 90%;
+  height: 400px;
+  margin: 20px auto;
+}
+
+.data-table {
+  border-collapse: collapse;
+  min-width: 1400px;
+  width: 90%;
+  font-size: 14px;
+}
+
+.data-table th {
+  background-color: #1e3a5f;
+  color: white;
+  padding: 8px;
+  position: sticky;
+  top: 0;
+}
+
+.data-table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-image {
+  width: 60px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.table-image:hover {
+  transform: scale(6.15);
+}
+
+
+
+
+
+.amount-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.amount-range-panel {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  background: #ffffff;
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  width: 150px;
+  z-index: 999;
+}
+
+.amount-range-panel input {
+  padding: 1px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  width:100%;
+}
+  #minAmount, #maxAmount {
+  width: 100%;;
+ }
+
+
+.amount-range-panel.show {
+  display: flex;
+}

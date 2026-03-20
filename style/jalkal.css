@@ -1,0 +1,313 @@
+/* =========================
+   GLOBAL
+========================= */
+:root {
+  --header-h: 72px;
+  --footer-h: 34px;
+
+  /* Theme (change these only) */
+  --hdr-1: #0f172a;
+  /* deep navy */
+  --hdr-2: #1e293b;
+  /* slate */
+  --accent: #06b6d4;
+  /* cyan */
+  --text: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  overflow: hidden;
+  /* keep map fullscreen without page scroll */
+  background: #0b1220;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+  height: var(--header-h);
+  background: linear-gradient(to right, var(--hdr-1), var(--hdr-2));
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.center-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: nowrap;
+}
+
+.logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+
+.logo1 {
+  height: 34px;
+  width: auto;
+  right: 1%;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+/* =========================
+   LAYER CONTROLS (top-right pills)
+========================= */
+.layer-controls {
+  position: absolute;
+  top: calc(var(--header-h) + 8px);
+  left: 6%;
+  z-index: 2000;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.layer-controls label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #e5e7eb;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  transition: transform .15s ease, background .15s ease;
+  user-select: none;
+}
+
+.layer-controls label:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.layer-controls input {
+  accent-color: var(--accent);
+}
+
+/* =========================
+   MAP
+========================= */
+#map {
+  width: 100%;
+  height: calc(100vh - var(--header-h) - var(--footer-h));
+  position: relative;
+  z-index: 1;
+}
+
+/* If OpenLayers adds controls under header, push them down a bit */
+.ol-control {
+  margin-top: 6px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  height: var(--footer-h);
+  background: linear-gradient(to right, var(--hdr-2), var(--hdr-1));
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 992px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .logo {
+    height: 38px;
+  }
+
+  .logo1 {
+    height: 36px;
+  }
+
+  .layer-controls {
+    top: calc(var(--header-h) + 8px);
+    right: 10%;
+    left: 6%;
+    padding: 8px 10px;
+  }
+
+  .layer-controls label {
+    font-size: 12px;
+    padding: 7px 9px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-h: 64px;
+  }
+
+  .center-content {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .title {
+    font-size: 16px;
+    max-width: 55vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Put layer controls under header, full width */
+  .layer-controls {
+    left: 6%;
+    right: 10%;
+    top: calc(var(--header-h) + 8px);
+    justify-content: space-between;
+  }
+
+  .layer-controls label {
+    flex: 1;
+    justify-content: center;
+  }
+
+  /* Reduce map height slightly because layer controls overlay */
+  #map {
+    height: calc(100vh - var(--header-h) - var(--footer-h));
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 34px;
+  }
+
+  .logo1 {
+    height: 32px;
+  }
+
+  .title {
+    font-size: 15px;
+  }
+
+  .layer-controls label {
+    padding: 6px 8px;
+  }
+}
+
+/* Popup container */
+.ol-popup {
+  position: absolute;
+  background-color: #ffffff;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  min-width: 180px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  bottom: 12px;
+  left: -50px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Popup arrow */
+.ol-popup:after,
+.ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.ol-popup:after {
+  border-top-color: #ffffff;
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+}
+
+.ol-popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+  left: 48px;
+  margin-left: -11px;
+}
+
+/* Close button */
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 16px;
+  color: #555;
+}
+
+.ol-popup-closer:hover {
+  color: #000;
+  cursor: pointer;
+}
+
+/* Close icon */
+.ol-popup-closer:after {
+  content: "✖";
+}
+
+/* Popup content */
+#popup-content {
+  margin-top: 6px;
+  color: #333;
+}
+
+
+
+
+
+
+

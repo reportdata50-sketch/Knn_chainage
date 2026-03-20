@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanpur</title>
+
+    <link href="libs/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="libs/v6.13.0-dist/ol.css">
+    <link rel="stylesheet" href="libs/ol-layerswitcher-master/dist/ol-layerswitcher.css" />
+    <link rel="sylesheet" href="libs/ol-geocoder/ol-geocoder.css" />
+    <!-- <link rel="stylesheet" href="libs/ol-popup/ol-popup.css"/> -->
+    <link rel="stylesheet" href="libs/jquery-ui-1.12.1/jquery-ui.css">
+
+    <script src="libs/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="libs/jquery.js"></script>
+    <script src="libs/v6.13.0-dist/ol.js"></script>
+    <script src="libs/ol-layerswitcher-master/dist/ol-layerswitcher.js"></script>
+    <script src="libs/ol-geocoder/ol-geocoder.js"></script>
+    <script src="libs/ol-popup/ol-popup.js"></script>
+    <script src="libs/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script src="libs/jquery-ui-1.12.1/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
+    <link rel="shortcut icon" type="image/x-icon" class="fabicon" href="/logo/logo_tree.png" />
+    <!-- <link rel="stylesheet" href="style/knn_chain.css"> -->
+    <link rel="stylesheet" href="style/knn_chain.css">
+    <link rel="stylesheet" href="style/responsive.css">
+</head>
+
+<body>
+    <!---------------------- header section start -------------------------->
+    <div class="header">
+        <!-- <i class="fas fa-bars hamburger"></i> -->
+        <div class="center-content">
+            <img src="./logo/Kanpur_logo.jpg" class="logo" alt="" />
+            <h2 class="title">Kanpur Nagar Nigam</h2>
+            <img src="./logo/rsac (1).png" class="logo" alt="dp" />
+            <img src="./logo/download.png" class="logo1" alt="dp" />
+
+        </div>
+
+    </div>
+
+
+
+
+    <!---------------------- main-container section start -------------------------->
+    <div class="main-container">
+
+
+
+        <!---------------------- map section start ------------------>
+        <div id="map">
+            <div class="map-icons-left">
+                <!-- 
+                    <button id="locateBtn">My Location</button> -->
+
+
+            </div>
+
+
+            <!-- -------------------Panel code for creating satrt and end point---------------- -->
+
+            <!------------------------ Preview detail start --------------------->
+
+            <!-- 
+            <div id="dataTable" style="width: 100%;max-height: 213px;overflow-y: auto;overflow-x: auto;position: fixed;bottom: 0;border-top: 2px solid #333;
+display: none;
+padding: 0px 10px;
+font-size: 14px;
+">
+                </div> -->
+
+            <div id="projectPopup" class="project-popup">
+                <div class="popup-header">
+                    <span>PROJECT DETAILS</span>
+                    <button id="closeProjectPopup">:heavy_multiplication_x:</button>
+                </div>
+
+                <div id="projectPopupContent" class="popup-content"></div>
+            </div>
+        </div>
+    </div>
+    <!-------------------- map section end -------------------->
+    <!-- Scale bar container -->
+    <div id="scale_bar"></div>
+
+    <!-- Custom scale bar (optional) -->
+    <div id="scale_bar1"></div>
+
+    <!--------- main-container section end -------------->
+
+    <!----------- footer section start ---------->
+    <div class="footer">
+        &copy; 2024 UP Remote Sensing Applications Centre. All rights reserved.
+    </div>
+    <!--------- footer section end ----------->
+    <script src="config.js"></script>
+    <script src="./javascript/kanpur_patches_view.js"></script>
+
+
+
+</body>
+
+</html>
